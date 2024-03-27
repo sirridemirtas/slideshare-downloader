@@ -1,7 +1,9 @@
 import { parse } from "node-html-parser";
+import isSlideShareUrl from "../../helpers/validation";
+import { getThumbnailLinks, getSlideLinks } from "../../helpers/slideLinks";
 
 export default function handler(req, res) {
-  if (!validateSlideShareUrl(req.query.url)) {
+  if (!isSlideShareUrl(req.query.url)) {
     res.status(400).json({
       status: "error",
       message: "Invalid SlideShare URL",
@@ -29,58 +31,8 @@ export default function handler(req, res) {
         title: slideTitle,
         url: originalUrl,
         size: slideSize,
-        thumbs: createThumbnailLinks(firstSlide, slideSize),
-        slides: createSlideLinks(firstSlide, slideSize),
+        thumbs: getThumbnailLinks(firstSlide, slideSize),
+        slides: getSlideLinks(firstSlide, slideSize),
       });
     });
-}
-
-function createLinks(firstSlide, size) {
-  let slides = [];
-  let urlParts = splitTextWithRegex(firstSlide);
-  for (let i = 0; i < size; i++) {
-    slides.push(`${urlParts[0]}${i + 1}${urlParts[1]}`);
-  }
-  return slides;
-}
-
-function createSlideLinks(firstSlide, size) {
-  firstSlide = firstSlide
-    .replace("-320.jpg", "-2048.jpg")
-    .replace("/85/", "/75/");
-  return createLinks(firstSlide, size);
-}
-
-function createThumbnailLinks(firstSlide, size) {
-  firstSlide = firstSlide
-    .replace("-2048.jpg", "-320.jpg")
-    .replace("/75/", "/85/");
-  return createLinks(firstSlide, size);
-}
-
-function splitTextWithRegex(text) {
-  const match = /(?<=-)(\d+)(?=-\d+.jpg)/g.exec(text);
-  if (match) {
-    const index = match.index + match[0].length;
-    return [text.slice(0, index).slice(0, -1), text.slice(index)];
-  } else {
-    return [text];
-  }
-}
-
-function validateSlideShareUrl(url) {
-  // Regular expression to match valid URLs with optional protocol and slideshare.net domain
-  const urlRegex = /^(?:https?:\/\/)?(?:www\.)?slideshare\.net\/.*$/i;
-
-  // Check if the URL matches the regular expression
-  if (!urlRegex.test(url)) {
-    return false; // Invalid URL
-  }
-
-  // If the URL doesn't have a protocol, add "https://"
-  if (!url.startsWith("http://") && !url.startsWith("https://")) {
-    url = "https://" + url;
-  }
-
-  return url; // Return the validated URL with protocol if necessary
 }
