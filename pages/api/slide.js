@@ -1,5 +1,5 @@
 import { parse } from "node-html-parser";
-import isSlideShareUrl from "../../helpers/validation";
+import { isSlideShareUrl } from "../../helpers/validation";
 import { getThumbnailLinks, getSlideLinks } from "../../helpers/slideLinks";
 
 export default function handler(req, res) {
@@ -21,7 +21,9 @@ export default function handler(req, res) {
       const firstSlide = root
         .querySelector("#slide-image-0")
         .getAttribute("src");
-      const slideTitle = root.querySelector("h1.title").childNodes[0].rawText;
+      const slideTitle = root
+        .querySelector("h1.title")
+        .childNodes[0].rawText;
       const originalUrl = root
         .querySelector('link[rel="canonical"]')
         .getAttribute("href");

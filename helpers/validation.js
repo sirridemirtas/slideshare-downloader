@@ -1,4 +1,4 @@
-const isSlideShareUrl = (url) => {
+export const isSlideShareUrl = (url) => {
     // Regular expression to match valid URLs with optional protocol and slideshare.net domain
     const urlRegex = /^(?:https?:\/\/)?(?:www\.)?slideshare\.net\/.*$/i;
   
@@ -14,5 +14,3 @@ const isSlideShareUrl = (url) => {
   
     return url; // Return the validated URL with protocol if necessary
 }
-
-export default isSlideShareUrl;
