@@ -1,3 +1,4 @@
+import { AppContext, AppProvider } from "./store";
 import "normalize.css";
 import { Inter } from "next/font/google";
 import "./index.css";
@@ -13,8 +14,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <AppProvider>
+      <html lang="en">
+        <body className={inter.className}>{children}</body>
+      </html>
+    </AppProvider>
   );
 }
