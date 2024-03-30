@@ -11,6 +11,7 @@ const AppProvider = ({ children }) => {
     slideSize: 0,
     thumbs: [],
     slides: [],
+    invalidUrl: false,
   };
 
   const [state, dispatch] = useReducer(AppReducer, initialState);

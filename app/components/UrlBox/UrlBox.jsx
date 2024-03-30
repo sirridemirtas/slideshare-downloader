@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AppContext, AppActions } from "../../store";
+import { isSlideShareUrl } from "../../../helpers/validation";
 import styles from "./UrlBox.module.css";
 
 const UrlBox = () => {
@@ -7,9 +8,15 @@ const UrlBox = () => {
 
   const handleSetUrl = () => {
     const url = document.getElementById(styles.input).value;
+    if (isSlideShareUrl(url) === false) {
+      dispatch({ type: AppActions.SET_INVALID_URL, payload: true });
+      return;
+    }
+
+    dispatch({ type: AppActions.SET_INVALID_URL, payload: false });
     dispatch({ type: AppActions.SET_URL, payload: url });
 
-    fetch(`http://localhost:3000/api/slide?url=${url}`)
+    fetch(`/api/slide?url=${url}`)
       .then((res) => res.json())
       .then((data) => {
         dispatch({ type: AppActions.SET_TITLE, payload: data.title });
@@ -39,6 +46,9 @@ const UrlBox = () => {
           Get Slide
         </button>
       </div>
+      <label className={styles.error}>
+        {state.invalidUrl && "Invalid SlideShare url"}
+      </label>
     </div>
   );
 };

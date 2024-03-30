@@ -4,35 +4,40 @@
     align-items: center;
     flex-direction: column;
     margin-top: 100px;
+    gap: 20px;
 
     .label {
         font-size: 15px;
         color: #666;
         margin: 0;
         padding: 0;
-        margin: 20px 0;
     }
 
     .inputs {
-        display: grid;
-        grid-template-columns: 1fr 140px;
-        gap: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
         width: 100%;
+        height: 44px;
         max-width: 600px;
 
+        background: #fff;
         box-shadow: 0 11px 15px -7px rgba(0,0,0,.05);
+        _box-shadow: 0 11px 34px 0 rgba(0,0,0,.2);
+
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #86868b;
 
         .input {
-            border: 1px solid #eaeaea;
-            border-radius: 8px;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            height: 42px;
+            flex: 1;
+            border: none;
+            background-color: transparent;
             font-size: 14px;
             padding: 0 16px;
             padding-right: 0;
             min-width: 200px;
-            background-color: #fff;
+
         }
 
         .input:focus {
@@ -43,16 +48,22 @@
             background-color: #eaeaea;
             color: #444;
             border: none;
-            padding: 0 16px;
-            border-radius: 8px;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
             font-size: 16px;
             font-weight: 500;
             cursor: pointer;
-            height: 42px;
             text-transform: uppercase;
+            padding: 0 16px;
         }
+    }
+
+    .inputs:focus-within {
+        border-color: #007bff;
+    }
+
+    label.error {
+        color: #ff5255;
+        font-size: 14px;
+        height: 20px;
     }
 }
 

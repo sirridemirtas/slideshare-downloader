@@ -2,15 +2,6 @@ import { AppActions } from "./AppActions";
 
 export const AppReducer = (state, action) => {
   switch (action.type) {
-    // case AppActions.SET_DATA:
-    //   return {
-    //     ...state,
-    //     url: action.payload.url,
-    //     title: action.payload.title,
-    //     thumbs: action.payload.thumbs,
-    //     slides: action.payload.slides,
-    //     slideSize: action.payload.slides.size,
-    //   };
     case AppActions.SET_URL:
       return { ...state, url: action.payload };
     case AppActions.SET_TITLE:
@@ -21,6 +12,8 @@ export const AppReducer = (state, action) => {
       return { ...state, thumbs: action.payload };
     case AppActions.SET_SLIDES:
       return { ...state, slides: action.payload };
+    case AppActions.SET_INVALID_URL:
+      return { ...state, invalidUrl: action.payload };
     default:
       return state;
   }
