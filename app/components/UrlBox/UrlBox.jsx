@@ -54,6 +54,7 @@ const UrlBox = () => {
           type="text"
           placeholder="https://www.slideshare.net/SkeletonTech/skeleton-culture-code"
           autoFocus={true}
+          onClick={(e) => e.target.select()}
         />
         <button className={styles.button}>Get Slide</button>
       </form>

@@ -53,11 +53,18 @@
             cursor: pointer;
             text-transform: uppercase;
             padding: 0 16px;
+            border-radius: 6px;
+            margin: 4px;
         }
     }
 
     .inputs:focus-within {
         border-color: #007bff;
+
+        .button {
+            background-color: #007bff;
+            color: #fff;
+        }
     }
 
     label.error {
