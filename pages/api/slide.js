@@ -1,18 +1,27 @@
 import { parse } from "node-html-parser";
-import { isSlideShareUrl } from "../../helpers/validation";
+import { isSlideShareUrl } from "../../helpers/url";
 import { getThumbnailLinks, getSlideLinks } from "../../helpers/slideLinks";
 
 export default function handler(req, res) {
-  if (!isSlideShareUrl(req.query.url)) {
+  const sendError = (message) => {
     res.status(400).json({
       status: "error",
-      message: "Invalid SlideShare URL",
+      message: message,
     });
+  };
+
+  if (!isSlideShareUrl(req.query.url)) {
+    sendError("Invalid SlideShare URL");
     return false;
   }
 
   fetch(req.query.url)
-    .then((response) => response.text())
+    .then((response) => {
+      if (!response.ok) {
+        sendError("Failed to fetch SlideShare presentation");
+      }
+      return response.text();
+    })
     .then((data) => {
       const root = parse(data);
       const slideSize = root
@@ -21,9 +30,7 @@ export default function handler(req, res) {
       const firstSlide = root
         .querySelector("#slide-image-0")
         .getAttribute("src");
-      const slideTitle = root
-        .querySelector("h1.title")
-        .childNodes[0].rawText;
+      const slideTitle = root.querySelector("h1.title").childNodes[0].rawText;
       const originalUrl = root
         .querySelector('link[rel="canonical"]')
         .getAttribute("href");
