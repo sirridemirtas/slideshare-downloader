@@ -1,12 +1,12 @@
 import { parse } from "node-html-parser";
-import { isSlideShareUrl } from "../../helpers/url";
-import { getThumbnailLinks, getSlideLinks } from "../../helpers/slideLinks";
+
+import { isSlideShareUrl } from "../../utils/url";
+import { getThumbnailLinks, getSlideLinks } from "../../utils/slide-links";
 
 export default function handler(req, res) {
   const sendError = (message) => {
     res.status(400).json({
-      status: "error",
-      message: message,
+      error: message,
     });
   };
 
