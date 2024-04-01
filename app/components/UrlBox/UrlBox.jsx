@@ -72,6 +72,9 @@ const UrlBox = () => {
           autoFocus={true}
           onClick={(e) => e.target.select()}
           disabled={isLoading}
+          pattern="^(?:https?:\/\/)?(?:www\.)?slideshare\.net\/.*$"
+          title="Enter a valid SlideShare URL"
+          required
         />
         <button className={styles.button} disabled={isLoading}>
           Get Slide

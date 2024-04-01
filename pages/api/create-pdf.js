@@ -17,17 +17,12 @@ export default async function handler(req, res) {
 
     for (const url of urls) {
       const image = await loadImage(url);
-
-      // Create a new page with dimensions matching the image
       const page = pdfDoc.addPage([image.width, image.height]);
-
       const canvas = createCanvas(image.width, image.height);
       const ctx = canvas.getContext("2d");
       ctx.drawImage(image, 0, 0);
 
       const pdfImage = await pdfDoc.embedPng(canvas.toBuffer());
-
-      // Draw the image on the page, filling the entire page
       page.drawImage(pdfImage, {
         x: 0,
         y: 0,

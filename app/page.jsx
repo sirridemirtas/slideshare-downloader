@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <main className="main">
-      <h1 class="title">SlideShare Downloader</h1>
+      <h1 className="title">SlideShare Downloader</h1>
       <UrlBox />
       {state.slides.length != 0 && <DownloadPDF />}
       {state.thumbs && <Thumbnails images={state.thumbs} />}
