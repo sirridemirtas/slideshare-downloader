@@ -1,4 +1,4 @@
-import { AppProvider } from "./store";
+import { AppProvider } from "../store";
 import "normalize.css";
 import { Inter } from "next/font/google";
 import "./index.css";

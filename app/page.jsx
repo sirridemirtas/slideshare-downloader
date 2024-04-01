@@ -1,10 +1,10 @@
 "use client";
 import { useContext } from "react";
-import { AppContext } from "./store";
+import { AppContext } from "../store";
 
-import DownloadPDF from "./components/DownloadPDF/DownloadPDF";
-import UrlBox from "./components/UrlBox/UrlBox";
-import Thumbnails from "./components/Thumbnails/Thumbnails";
+import DownloadPDF from "../components/DownloadPDF/DownloadPDF";
+import UrlBox from "../components/UrlBox/UrlBox";
+import Thumbnails from "../components/Thumbnails/Thumbnails";
 
 export default function Home() {
   const { state } = useContext(AppContext);

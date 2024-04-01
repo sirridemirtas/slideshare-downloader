@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AppContext, AppActions } from "../../store";
-import { isSlideShareUrl, upgradetoHTTPS } from "../../../utils/url";
+import { isSlideShareUrl, upgradetoHTTPS } from "../../utils/url";
 import styles from "./UrlBox.module.css";
 
 const UrlBox = () => {
