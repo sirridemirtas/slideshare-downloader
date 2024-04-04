@@ -1,33 +1,40 @@
 .thumbs {
-    width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 16px;
-    padding: 40px 32px 120px 32px;
-    background-color: var(--color-background);
-    border-radius: 32px;
-    margin-top: 64px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  padding: 40px 32px 120px 32px;
+  background-color: var(--color-background);
+  border-radius: 32px;
+  margin-top: 64px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 
-.thumb { 
+  .thumb {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border: 1px solid #ccc;
     border-radius: 8px;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .thumb.selected {
+    outline: 2px solid var(--color-theme);
+    border-color: transparent;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .thumbs {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .thumbs {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .thumbs {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .thumbs {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
