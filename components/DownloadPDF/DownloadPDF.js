@@ -15,7 +15,7 @@ const DownloadPDF = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(state.slides),
+        body: JSON.stringify(state.selected_slides),
       });
 
       if (!response.ok) {
@@ -38,12 +38,12 @@ const DownloadPDF = () => {
 
   return (
     <div className={styles.wrapper}>
-      <span>
+      {/* <span>
         <b>Title:</b> {state.title}
       </span>
       <span>
         <b>Page Count:</b> {state.slideSize}
-      </span>
+      </span> */}
       <button
         className={styles.button}
         onClick={handleButtonClick}
@@ -51,13 +51,13 @@ const DownloadPDF = () => {
       >
         Download as PDF
       </button>
-      {
+      {/* {
         <p style={{ height: "20px" }}>
           {isLoading
             ? "Generating PDF..."
             : pdfData && "PDF generated successfully!"}
         </p>
-      }
+      } */}
     </div>
   );
 };

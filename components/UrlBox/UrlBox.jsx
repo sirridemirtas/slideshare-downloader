@@ -35,6 +35,7 @@ const UrlBox = () => {
         return res.json();
       })
       .then((data) => {
+        dispatch({ type: AppActions.RESET });
         if (!data) {
           dispatch({ type: AppActions.SET_INVALID_URL, payload: true });
           throw new Error("No data received");
@@ -46,6 +47,10 @@ const UrlBox = () => {
         });
         dispatch({ type: AppActions.SET_THUMBS, payload: data.thumbs });
         dispatch({ type: AppActions.SET_SLIDES, payload: data.slides });
+        dispatch({
+          type: AppActions.SET_SELECTED_SLIDES,
+          payload: data.slides,
+        });
       })
       .catch((error) => {
         console.error(
