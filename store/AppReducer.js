@@ -1,4 +1,5 @@
 import { AppActions } from "./AppActions";
+import { initialState } from "./AppStore";
 
 export const AppReducer = (state, action) => {
   switch (action.type) {
@@ -14,6 +15,17 @@ export const AppReducer = (state, action) => {
       return { ...state, slides: action.payload };
     case AppActions.SET_INVALID_URL:
       return { ...state, invalidUrl: action.payload };
+    case AppActions.SET_SELECTED_SLIDES:
+      return { ...state, selected_slides: action.payload };
+    case AppActions.TOGGLE_SLIDE:
+      return {
+        ...state,
+        selected_slides: state.selected_slides.includes(action.payload)
+          ? state.selected_slides.filter((slide) => slide !== action.payload)
+          : [...state.selected_slides, action.payload],
+      };
+    case AppActions.RESET:
+      return initialState;
     default:
       return state;
   }

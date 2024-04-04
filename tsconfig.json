@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/create-pdf.js", "pages/api/slide.js", "app/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/api/create-pdf.js", "pages/api/slide.js", "app/page.jsx", "app/layout.jsx"],
   "exclude": ["node_modules"]
 }

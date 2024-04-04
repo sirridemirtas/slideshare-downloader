@@ -4,16 +4,17 @@ import { AppReducer } from "./AppReducer";
 
 const AppContext = createContext();
 
-const AppProvider = ({ children }) => {
-  const initialState = {
-    url: null,
-    title: null,
-    slideSize: 0,
-    thumbs: [],
-    slides: [],
-    invalidUrl: false,
-  };
+export const initialState = {
+  url: null,
+  title: null,
+  slideSize: 0,
+  thumbs: [],
+  slides: [],
+  selected_slides: [],
+  invalidUrl: false,
+};
 
+const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   return (
