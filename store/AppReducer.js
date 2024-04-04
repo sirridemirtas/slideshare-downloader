@@ -1,5 +1,6 @@
 import { AppActions } from "./AppActions";
 import { initialState } from "./AppStore";
+import { reorderSecondArray } from "../utils/array";
 
 export const AppReducer = (state, action) => {
   switch (action.type) {
@@ -22,7 +23,10 @@ export const AppReducer = (state, action) => {
         ...state,
         selected_slides: state.selected_slides.includes(action.payload)
           ? state.selected_slides.filter((slide) => slide !== action.payload)
-          : [...state.selected_slides, action.payload],
+          : reorderSecondArray(state.slides, [
+              ...state.selected_slides,
+              action.payload,
+            ]),
       };
     case AppActions.RESET:
       return initialState;
