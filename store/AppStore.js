@@ -11,6 +11,7 @@ export const initialState = {
   thumbs: [],
   slides: [],
   selected_slides: [],
+  selection_mode: false,
   invalidUrl: false,
 };
 

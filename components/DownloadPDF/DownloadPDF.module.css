@@ -6,15 +6,9 @@
   gap: 20px;
 
   .button {
-    background-color: var(--color-primary-container);
-    color: var(--color-on-primary-container);
     border: none;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    border-radius: 6px;
+    background: none;
+    color: var(--color-primary);
   }
 
   .button:disabled {

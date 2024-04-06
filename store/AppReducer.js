@@ -28,6 +28,8 @@ export const AppReducer = (state, action) => {
               action.payload,
             ]),
       };
+    case AppActions.SET_SELECTION_MODE:
+      return { ...state, selection_mode: action.payload };
     case AppActions.RESET:
       return initialState;
     default:

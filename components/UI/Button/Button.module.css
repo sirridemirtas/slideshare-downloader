@@ -15,3 +15,9 @@
   font-size: 16px;
   font-weight: 500;
 }
+
+.button[disabled] {
+  cursor: not-allowed;
+  background-color: var(--color-primary-disabled);
+  color: var(--color-on-primary-disabled);
+}

@@ -4,7 +4,7 @@ import { Button } from "../UI";
 import { Download } from "../UI/Icons";
 import styles from "./DownloadPDF.module.css";
 
-const DownloadPDF = () => {
+const DownloadPDF = ({ label }) => {
   const { state } = useContext(AppContext);
   const [pdfData, setPdfData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,26 +40,14 @@ const DownloadPDF = () => {
 
   return (
     <div className={styles.wrapper}>
-      {/* <span>
-        <b>Title:</b> {state.title}
-      </span>
-      <span>
-        <b>Page Count:</b> {state.slideSize}
-      </span> */}
       <Button
+        className={styles.button}
         onClick={handleButtonClick}
         disabled={isLoading}
         isLoading={isLoading}
         icon={<Download />}
-        label="Download as PDF"
+        label={label || "Download as PDF"}
       />
-      {/* {
-        <p style={{ height: "20px" }}>
-          {isLoading
-            ? "Generating PDF..."
-            : pdfData && "PDF generated successfully!"}
-        </p>
-      } */}
     </div>
   );
 };
