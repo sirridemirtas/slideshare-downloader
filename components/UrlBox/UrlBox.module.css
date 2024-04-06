@@ -1,86 +1,62 @@
 .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 100px;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+  gap: 20px;
 
-    .label {
-        font-size: 15px;
-        color: #666;
-        margin: 0;
-        padding: 0;
-    }
+  .label {
+    font-size: 15px;
+    color: var(--color-on-surface-variant);
+    margin: 0;
+    padding: 0;
+  }
 
-    .inputs {
-        display: flex;
-        justify-content: space-between;
-        align-items: stretch;
-        width: 100%;
-        height: 44px;
-        max-width: 600px;
+  .form {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+  }
 
-        background: #fff;
-        box-shadow: 0 11px 15px -7px rgba(0,0,0,.05);
-        _box-shadow: 0 11px 34px 0 rgba(0,0,0,.2);
+  .input {
+    height: 44px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--color-outline);
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.05);
+    /* _box-shadow: 0 11px 34px 0 rgba(0,0,0,.2); */
+    background: var(--color-surface);
+    color: var(--color-on-surface);
+    font-size: 14px;
+    padding: 0 16px;
+    min-width: 200px;
+  }
 
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #86868b;
+  .input:focus {
+    border-color: var(--color-primary-container);
+  }
 
-        .input {
-            flex: 1;
-            border: none;
-            background-color: transparent;
-            font-size: 14px;
-            padding: 0 16px;
-            padding-right: 0;
-            min-width: 200px;
+  .button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    height: calc(100% - 10px);
 
-        }
+    background-color: var(--color-secondary);
+    color: var(--color-on-secondary);
+  }
 
-        .input:focus {
-            _background-color: #fafafa;
-        }
+  .input:focus + .button,
+  .button:focus {
+    background-color: var(--color-primary-container);
+    color: var(--color-on-primary-container);
+  }
 
-        .button {
-            background-color: #eaeaea;
-            color: #444;
-            border: none;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            text-transform: uppercase;
-            padding: 0 16px;
-            border-radius: 6px;
-            margin: 4px;
-        }
-    }
-
-    .inputs:focus-within {
-        border-color: #007bff;
-
-        .button {
-            background-color: #007bff;
-            color: #fff;
-        }
-    }
-
-    label.error, label.loading {
-        font-size: 14px;
-        height: 20px;
-    }
-
-    label.error {
-        color: #ff5255;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    
-}
-
-@media screen and (max-width: 480px) {
-    
+  label.error {
+    color: var(--color-error);
+    font-size: 14px;
+    height: 20px;
+  }
 }

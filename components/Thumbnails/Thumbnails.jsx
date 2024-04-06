@@ -1,8 +1,9 @@
 "use client";
+import { useContext } from "react";
 import cn from "classnames";
-import { useContext, useRef } from "react";
 import { AppActions, AppContext } from "../../store";
 import { DownloadPDF } from "../";
+import { Button } from "../UI";
 import styles from "./Thumbnails.module.css";
 
 const Thumbnails = () => {
@@ -16,23 +17,27 @@ const Thumbnails = () => {
   return state.thumbs.length ? (
     <div className={styles.thumbs}>
       <div className={styles.actions}>
-        <b>{state.title && <span>Title: {state.title}</span>}</b>
+        <b>{state.title && <span>{state.title}</span>}</b>
         Selected: {state.selected_slides.length}/{state.slideSize}
         {state.selected_slides.length != 0 && <DownloadPDF />}
       </div>
       {state.thumbs.map((image, index) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          key={index}
+        <button
           className={cn(
-            styles.thumb,
+            styles.thumbContainer,
             state.selected_slides.includes(state.slides[index]) &&
               styles.selected
           )}
-          src={image}
-          alt={`Thumbnail ${index + 1}`}
           onClick={(e) => onClickHandler(e, index)}
-        />
+          key={index}
+        >
+          <img
+            key={index}
+            className={cn(styles.thumb)}
+            src={image}
+            alt={`Thumbnail ${index + 1}`}
+          />
+        </button>
       ))}
     </div>
   ) : null;

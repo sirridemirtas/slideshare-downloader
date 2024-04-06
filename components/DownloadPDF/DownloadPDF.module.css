@@ -6,8 +6,8 @@
   gap: 20px;
 
   .button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--color-primary-container);
+    color: var(--color-on-primary-container);
     border: none;
     font-size: 16px;
     font-weight: 500;
