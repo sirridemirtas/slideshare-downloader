@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { AppContext, AppActions } from "../../store";
 import { isSlideShareUrl, upgradetoHTTPS } from "../../utils/url";
+import { Button } from "../UI";
+import { Download } from "../UI/Icons";
 import styles from "./UrlBox.module.css";
 
 const UrlBox = () => {
@@ -68,7 +70,7 @@ const UrlBox = () => {
       <label htmlFor={styles.input} className={styles.label}>
         Enter the URL of the SlideShare presentation you want to download
       </label>
-      <form className={styles.inputs} onSubmit={handleSetUrl}>
+      <form className={styles.form} onSubmit={handleSetUrl}>
         <input
           id={styles.input}
           className={styles.input}
@@ -81,14 +83,17 @@ const UrlBox = () => {
           title="Enter a valid SlideShare URL"
           required
         />
-        <button className={styles.button} disabled={isLoading}>
-          Get Slide
-        </button>
+        <Button
+          className={styles.button}
+          disabled={isLoading}
+          isLoading={isLoading}
+          label={"GET SLIDE"}
+          icon={<Download />}
+        />
       </form>
       <label className={styles.error}>
         {state.invalidUrl && "Invalid SlideShare URL"}
       </label>
-      <label className={styles.loading}>{isLoading && "Loading..."}</label>
     </div>
   );
 };

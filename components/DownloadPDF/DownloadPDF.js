@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../../store";
+import { Button } from "../UI";
+import { Download } from "../UI/Icons";
 import styles from "./DownloadPDF.module.css";
 
 const DownloadPDF = () => {
@@ -44,13 +46,13 @@ const DownloadPDF = () => {
       <span>
         <b>Page Count:</b> {state.slideSize}
       </span> */}
-      <button
-        className={styles.button}
+      <Button
         onClick={handleButtonClick}
         disabled={isLoading}
-      >
-        Download as PDF
-      </button>
+        isLoading={isLoading}
+        icon={<Download />}
+        label="Download as PDF"
+      />
       {/* {
         <p style={{ height: "20px" }}>
           {isLoading
