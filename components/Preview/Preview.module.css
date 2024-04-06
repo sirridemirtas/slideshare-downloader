@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 32px;
+  height: 300px;
+  border-radius: 32px;
+  background: var(--color-surface-bright);
+  color: var(--color-on-surface);
+
+  overflow: hidden;
+
+  .cover {
+    width: 50%;
+    height: 100%;
+    background: var(--color-surface-container-highest);
+  }
+
+  .cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    width: 50%;
+  }
+}

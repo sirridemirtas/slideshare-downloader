@@ -4,13 +4,11 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 16px;
-  padding: 0px 32px 120px 32px;
+  padding: 0px 32px 32px 32px;
 
   background-color: var(--color-surface-bright);
   border-radius: 32px;
-  margin-top: 64px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  margin: 64px 0;
   border-bottom: none;
 
   .thumbContainer {

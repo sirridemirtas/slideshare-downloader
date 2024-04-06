@@ -86,9 +86,9 @@ const UrlBox = () => {
         <Button
           className={styles.button}
           disabled={isLoading}
-          isLoading={isLoading}
+          /* isLoading={isLoading} */
           label={"GET SLIDE"}
-          icon={<Download />}
+          /* icon={<Download />} */
         />
       </form>
       <label className={styles.error}>
