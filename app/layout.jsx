@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { AppProvider } from "../store";
 import "normalize.css";
 import { Inter } from "next/font/google";
@@ -14,7 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <AppProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          {children}
+          <Analytics />
+        </body>
       </html>
     </AppProvider>
   );
