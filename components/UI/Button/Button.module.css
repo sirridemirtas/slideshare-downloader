@@ -16,8 +16,14 @@
   font-weight: 500;
 }
 
-.button[disabled] {
+/* disabled button */
+.button.disabled {
+  _opacity: 0.7;
   cursor: not-allowed;
-  background-color: var(--color-primary-disabled);
-  color: var(--color-on-primary-disabled);
+  filter: grayscale(1);
+}
+
+.button.text {
+  background-color: transparent;
+  color: var(--color-primary);
 }

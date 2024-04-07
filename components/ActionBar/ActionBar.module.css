@@ -1,42 +1,8 @@
 .actionBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-    height: 52px;
-    width: 100%;
-    margin: 0 auto;
-    position: sticky;
-    top: 0;
-    margin-top: 16px;
-    background-color: var(--color-background);
-    border-radius: 16px 16px 0 0;
-    margin-top: 100px;
-}
-
-.title {
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
-}
-
-.button {
-    background-color: #0063ee;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 32px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    height: 42px;
-}
-
-@media screen and (max-width: 768px) {
-    
-}
-
-@media screen and (max-width: 480px) {
-    
+  z-index: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
 }

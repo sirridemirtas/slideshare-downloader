@@ -4,7 +4,7 @@ import { Button } from "../UI";
 import { Download } from "../UI/Icons";
 import styles from "./DownloadPDF.module.css";
 
-const DownloadPDF = ({ label }) => {
+const DownloadPDF = ({ label, disabled }) => {
   const { state } = useContext(AppContext);
   const [pdfData, setPdfData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,12 +41,12 @@ const DownloadPDF = ({ label }) => {
   return (
     <div className={styles.wrapper}>
       <Button
-        className={styles.button}
         onClick={handleButtonClick}
-        disabled={isLoading}
+        disabled={isLoading || disabled}
         isLoading={isLoading}
         icon={<Download />}
         label={label || "Download as PDF"}
+        kind="text"
       />
     </div>
   );

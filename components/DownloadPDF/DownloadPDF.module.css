@@ -4,14 +4,4 @@
   align-items: center;
   flex-direction: column;
   gap: 20px;
-
-  .button {
-    border: none;
-    background: none;
-    color: var(--color-primary);
-  }
-
-  .button:disabled {
-    opacity: 0.5;
-  }
 }
