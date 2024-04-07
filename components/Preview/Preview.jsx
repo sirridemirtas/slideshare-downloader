@@ -10,11 +10,18 @@ const Preview = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.cover}>
-        <img src={state.slides[0]} alt="SlideShare cover" />
+      <div
+        className={styles.cover}
+        style={{
+          backgroundImage: `url(${state.slides[0]})`,
+          //filter: "blur(10px)",
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={state.slides[0]} alt="Slide Cover" />
       </div>
       <div className={styles.details}>
-        <span>
+        <span className={styles.title}>
           <b>Title:</b> {state.title}
         </span>
         <span>

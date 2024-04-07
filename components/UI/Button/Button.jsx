@@ -7,6 +7,7 @@ function Button({
   disabled = false,
   icon,
   isLoading,
+  kind = "primary",
   label,
   ...props
 }) {
@@ -16,8 +17,10 @@ function Button({
         styles.button,
         isLoading && styles.isLoading,
         className,
-        disabled && styles.disabled
+        disabled && styles.disabled,
+        kind === "text" && styles.text
       )}
+      disabled={disabled || isLoading}
       {...props}
     >
       {isLoading ? <Spinner /> : icon && icon}

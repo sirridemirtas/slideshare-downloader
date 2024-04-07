@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
 import { AppContext } from "../store";
-import { Preview, UrlBox, Thumbnails } from "../components";
+import { Preview, UrlBox, Selection } from "../components";
 
 export default function Home() {
   const { state } = useContext(AppContext);
@@ -17,7 +17,7 @@ export default function Home() {
         <UrlBox />
         {state.thumbs.length ? <Preview /> : ""}
         {state.selection_mode === true ? (
-          <Thumbnails images={state.thumbs} />
+          <Selection images={state.thumbs} />
         ) : (
           ""
         )}

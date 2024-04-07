@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { AppContext, AppActions } from "../../store";
 import { isSlideShareUrl, upgradetoHTTPS } from "../../utils/url";
 import { Button } from "../UI";
-import { Download } from "../UI/Icons";
 import styles from "./UrlBox.module.css";
 
 const UrlBox = () => {
@@ -84,6 +83,7 @@ const UrlBox = () => {
           required
         />
         <Button
+          type={"submit"}
           className={styles.button}
           disabled={isLoading}
           /* isLoading={isLoading} */
