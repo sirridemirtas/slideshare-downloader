@@ -2,7 +2,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { AppProvider } from "../store";
 import "normalize.css";
 import { Inter } from "next/font/google";
-import "./index.css";
+import "./global.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

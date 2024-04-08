@@ -16,9 +16,9 @@
   font-weight: 500;
 }
 
-/* disabled button */
-.button.disabled {
-  _opacity: 0.7;
+.button.disabled,
+.button[disabled] {
+  pointer-events: none;
   cursor: not-allowed;
   filter: grayscale(1);
 }
@@ -26,4 +26,8 @@
 .button.text {
   background-color: transparent;
   color: var(--color-primary);
+}
+
+.button.isLoading {
+  cursor: wait;
 }

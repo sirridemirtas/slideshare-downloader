@@ -74,7 +74,7 @@ const UrlBox = () => {
           id={styles.input}
           className={styles.input}
           type="text"
-          placeholder="https://www.slideshare.net/SkeletonTech/skeleton-culture-code"
+          placeholder="Enter SlideShare URL to download slides"
           autoFocus={true}
           onClick={(e) => e.target.select()}
           disabled={isLoading}
