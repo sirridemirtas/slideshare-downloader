@@ -15,9 +15,9 @@ function Button({
     <button
       className={cn(
         styles.button,
-        isLoading && styles.isLoading,
         className,
         disabled && styles.disabled,
+        isLoading && styles.isLoading,
         kind === "text" && styles.text
       )}
       disabled={disabled || isLoading}

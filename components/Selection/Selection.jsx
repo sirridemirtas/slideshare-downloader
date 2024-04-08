@@ -5,7 +5,7 @@ import { AppActions, AppContext } from "../../store";
 import { ActionBar } from "../";
 import styles from "./Selection.module.css";
 
-const Selection = () => {
+const Selection = ({ props }) => {
   const { state, dispatch } = useContext(AppContext);
 
   const onClickHandler = (e, index) => {
@@ -14,27 +14,29 @@ const Selection = () => {
   };
 
   return state.thumbs.length ? (
-    <div className={styles.thumbs}>
+    <div className={styles.wrapper} {...props} id={"selection"}>
       <ActionBar className={styles.actions} />
-      {state.thumbs.map((image, index) => (
-        <button
-          className={cn(
-            styles.thumbContainer,
-            state.selected_slides.includes(state.slides[index]) &&
-              styles.selected
-          )}
-          onClick={(e) => onClickHandler(e, index)}
-          key={index}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+      <div className={styles.thumbs}>
+        {state.thumbs.map((image, index) => (
+          <div
+            className={cn(
+              styles.thumbContainer,
+              state.selected_slides.includes(state.slides[index]) &&
+                styles.selected
+            )}
+            onClick={(e) => onClickHandler(e, index)}
             key={index}
-            className={cn(styles.thumb)}
-            src={image}
-            alt={`Thumbnail ${index + 1}`}
-          />
-        </button>
-      ))}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              key={index}
+              className={cn(styles.thumb)}
+              src={image}
+              alt={`Thumbnail ${index + 1}`}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   ) : null;
 };

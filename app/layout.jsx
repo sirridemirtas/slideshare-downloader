@@ -2,23 +2,26 @@ import { Analytics } from "@vercel/analytics/react";
 import { AppProvider } from "../store";
 import "normalize.css";
 import { Inter } from "next/font/google";
-import "./index.css";
+import "./global.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "SlideShare Downloader",
-  description: "Download slides from SlideShare for free",
+  description:
+    "Effortlessly convert SlideShare presentations to PDF. Customize downloads by selecting specific pages. Convenient access to valuable content.",
   keywords: [
-    "slideshare",
-    "downloader",
+    "SlideShare",
+    "PDF converter",
     "download",
-    "slides",
-    "free",
-    "pdf",
+    "downloader",
     "presentation",
+    "document",
+    "online",
+    "user-friendly",
+    "customization",
+    "ease of use",
   ],
-  author: "Sirri Demirtas",
   meta: {
     charset: "utf-8",
   },

@@ -5,17 +5,27 @@ import DownloadPDF from "../DownloadPDF/DownloadPDF";
 import styles from "./Preview.module.css";
 import { Button } from "../UI";
 
-const Preview = () => {
+const Preview = ({ props }) => {
   const { state, dispatch } = useContext(AppContext);
 
+  const openSelectionMode = () => {
+    dispatch({
+      type: AppActions.SET_SELECTION_MODE,
+      payload: true,
+    });
+
+    Promise.resolve().then(() => {
+      document
+        .getElementById("selection")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id={"preview"} {...props}>
       <div
         className={styles.cover}
-        style={{
-          backgroundImage: `url(${state.slides[0]})`,
-          //filter: "blur(10px)",
-        }}
+        style={{ "--bg-image": "url(" + state.slides[0] + ")" }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={state.slides[0]} alt="Slide Cover" />
@@ -33,12 +43,8 @@ const Preview = () => {
         <span>
           <Button
             label={"Download Selected Pages"}
-            onClick={() =>
-              dispatch({
-                type: AppActions.SET_SELECTION_MODE,
-                payload: true,
-              })
-            }
+            onClick={openSelectionMode}
+            kind="text"
           />
         </span>
       </div>
