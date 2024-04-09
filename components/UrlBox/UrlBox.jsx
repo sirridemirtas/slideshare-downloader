@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AppContext, AppActions } from "../../store";
 import { isSlideShareUrl, upgradetoHTTPS } from "../../utils/url";
 import { Button } from "../UI";
+import { DownloadIcon, SearchIcon } from "../UI/Icons";
 import styles from "./UrlBox.module.css";
 
 const UrlBox = () => {
@@ -87,8 +88,8 @@ const UrlBox = () => {
           className={styles.button}
           disabled={isLoading}
           /* isLoading={isLoading} */
-          label={"GET SLIDE"}
-          /* icon={<Download />} */
+          /*  label={"GET SLIDE"} */
+          icon={<SearchIcon />}
         />
       </form>
       <label className={styles.error}>

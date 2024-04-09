@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../../store";
 import { Button } from "../UI";
-import { Download } from "../UI/Icons";
+import { DownloadIcon } from "../UI/Icons";
 import styles from "./DownloadPDF.module.css";
 
 const DownloadPDF = ({ label, disabled }) => {
@@ -44,7 +44,7 @@ const DownloadPDF = ({ label, disabled }) => {
         onClick={handleButtonClick}
         disabled={isLoading || disabled}
         isLoading={isLoading}
-        icon={<Download />}
+        icon={<DownloadIcon />}
         label={label || "Download as PDF"}
         kind="text"
       />

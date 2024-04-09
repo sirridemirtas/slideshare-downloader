@@ -1,18 +1,14 @@
 "use client";
 import { useContext } from "react";
 import { AppContext } from "../store";
-import { Preview, UrlBox, Selection } from "../components";
+import { AppBar, Preview, UrlBox, Selection } from "../components";
 
 export default function Home() {
   const { state } = useContext(AppContext);
 
   return (
     <div className="container">
-      <nav className="nav_wrapper">
-        <div className="nav">
-          <span className="title">SlideShare Downloader</span>
-        </div>
-      </nav>
+      <AppBar />
       <main className="main">
         <UrlBox />
         {state.thumbs.length ? <Preview /> : ""}
