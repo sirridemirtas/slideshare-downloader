@@ -1,4 +1,5 @@
 export { default as ActionBar } from "./ActionBar/ActionBar";
+export { default as AppBar } from "./AppBar/AppBar";
 export { default as DownloadPDF } from "./DownloadPDF/DownloadPDF";
 export { default as Preview } from "./Preview/Preview";
 export { default as Selection } from "./Selection/Selection";

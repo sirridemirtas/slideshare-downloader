@@ -1,18 +1,14 @@
 "use client";
 import { useContext } from "react";
 import { AppContext } from "../store";
-import { Preview, UrlBox, Selection } from "../components";
+import { AppBar, Preview, UrlBox, Selection } from "../components";
 
 export default function Home() {
   const { state } = useContext(AppContext);
 
   return (
     <div className="container">
-      <nav className="nav_wrapper">
-        <div className="nav">
-          <span className="title">SlideShare Downloader</span>
-        </div>
-      </nav>
+      <AppBar />
       <main className="main">
         <UrlBox />
         {state.thumbs.length ? <Preview /> : ""}
@@ -24,7 +20,16 @@ export default function Home() {
       </main>
       <footer className="footer_wrapper">
         <div className="footer">
-          <span>SlideShare Downloader</span>
+          <span>&copy; 2024 &#183; SlideShare Downloader</span>
+          <span className={"disclaimer"}>
+            SlideShare Downloader operates under strict adherence to copyright
+            laws. The platform functions as a conduit, retrieving content
+            directly from the Content Delivery Networks (CDNs) of the original
+            sources. It is important to note that SlideShare Downloader does not
+            host or store any copyrighted material on its servers. Furthermore,
+            the platform maintains no affiliation with SlideShare or any other
+            content-sharing platforms.
+          </span>
         </div>
       </footer>
     </div>

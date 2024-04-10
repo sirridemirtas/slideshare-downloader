@@ -1,4 +1,4 @@
-function Download() {
+function DownloadIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,4 +14,4 @@ function Download() {
   );
 }
 
-export default Download;
+export default DownloadIcon;

@@ -1,5 +1,5 @@
 .wrapper {
-  padding-top: 48px;
+  padding-top: 64px;
 }
 
 .thumbs {
@@ -79,8 +79,9 @@
   position: relative;
   position: sticky;
   background-color: var(--color-surface-container-low); /* body bg */
-  top: 47px;
+  top: 63.9px; /* nav height */
 }
+
 .actions::before {
   z-index: -1;
   content: "";
