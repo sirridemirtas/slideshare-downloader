@@ -9,7 +9,7 @@ const AppBar = () => {
     <nav className={cn(styles.nav_wrapper, y > 0 ? styles.scroll : "")}>
       <div className={styles.nav}>
         <span className={styles.title}>SlideShare Downloader</span>
-        <span>Scroll Position: {y}</span>
+        <span></span>
       </div>
     </nav>
   );

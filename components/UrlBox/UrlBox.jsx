@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { forvardRef, useContext, useRef, useState } from "react";
 import { AppContext, AppActions } from "../../store";
 import { isSlideShareUrl, upgradetoHTTPS } from "../../utils/url";
 import { Button } from "../UI";
@@ -65,13 +65,36 @@ const UrlBox = () => {
       });
   };
 
+  // Autosize textarea
+  const textarea = useRef(null);
+  const resize = () => {
+    textarea.current.style.height = "auto";
+    textarea.current.style.height = textarea.current.scrollHeight + "px";
+  };
+
+  const handleInput = (event) => {
+    // trim leading and trailing spaces
+    event.target.value = event.target.value.trim();
+    resize(event);
+    // press enter to submit
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("button_submit_url").click();
+      // blur to hide keyboard on mobile
+      event.target.blur();
+      return false;
+    }
+  };
+
+  window.addEventListener("resize", resize);
+
   return (
     <div className={styles.wrapper}>
-      <label htmlFor={styles.input} className={styles.label}>
+      {/* <label htmlFor={styles.input} className={styles.label}>
         Enter the URL of the SlideShare presentation you want to download
-      </label>
+      </label> */}
       <form className={styles.form} onSubmit={handleSetUrl}>
-        <input
+        <textarea
           id={styles.input}
           className={styles.input}
           type="text"
@@ -81,15 +104,22 @@ const UrlBox = () => {
           disabled={isLoading}
           pattern="^(?:https?:\/\/)?(?:www\.)?slideshare\.net\/.*$"
           title="Enter a valid SlideShare URL"
+          autoCapitalize="off"
+          autoComplete="off"
+          autoCorrect="off"
+          spellCheck="false"
+          rows={1}
           required
-        />
+          onKeyUp={handleInput}
+          ref={textarea}
+        ></textarea>
         <Button
           type={"submit"}
           className={styles.button}
           disabled={isLoading}
-          /* isLoading={isLoading} */
-          /*  label={"GET SLIDE"} */
-          icon={<SearchIcon />}
+          isLoading={isLoading}
+          icon={<DownloadIcon />}
+          id={"button_submit_url"}
         />
       </form>
       <label className={styles.error}>
