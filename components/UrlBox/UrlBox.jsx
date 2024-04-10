@@ -1,8 +1,8 @@
-import { forvardRef, useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext, AppActions } from "../../store";
 import { isSlideShareUrl, upgradetoHTTPS } from "../../utils/url";
 import { Button } from "../UI";
-import { DownloadIcon, SearchIcon } from "../UI/Icons";
+import { DownloadIcon } from "../UI/Icons";
 import styles from "./UrlBox.module.css";
 
 const UrlBox = () => {
@@ -86,7 +86,9 @@ const UrlBox = () => {
     }
   };
 
-  window.addEventListener("resize", resize);
+  useEffect(function onFirstMount() {
+    window.addEventListener("resize", resize);
+  }, []);
 
   return (
     <div className={styles.wrapper}>
