@@ -12,7 +12,8 @@
   background-color: var(--color-primary);
   color: var(--color-on-primary);
   border: none;
-  font-size: 16px;
+  _font-size: 16px;
+  font-size: inherit;
   font-weight: 500;
 }
 

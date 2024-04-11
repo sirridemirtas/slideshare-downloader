@@ -15,6 +15,7 @@ const Selection = ({ props }) => {
   return state.thumbs.length ? (
     <div className={styles.wrapper} {...props} id={"selection"}>
       <ActionBar className={styles.actions} />
+
       <div className={styles.thumbs}>
         {state.thumbs.map((image, index) => (
           <div

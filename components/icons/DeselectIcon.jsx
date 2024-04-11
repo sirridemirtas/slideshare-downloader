@@ -5,6 +5,7 @@ function DeselectIcon() {
       width="24"
       height="24"
       viewBox="0 0 24 24"
+      fill="currentColor"
     >
       <g fill="none">
         <path d="M0 0H24V24H0z"></path>

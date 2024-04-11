@@ -69,7 +69,7 @@ const UrlBox = () => {
   const textarea = useRef(null);
   const resize = (event) => {
     // trim leading and trailing spaces
-    event.target.value = event.target.value.trim();
+    event.target.value = event.target.value?.trim();
     //scroll to top
     event.target.scrollTop = 0;
     textarea.current.style.height = "auto";
@@ -102,7 +102,7 @@ const UrlBox = () => {
           id={styles.input}
           className={styles.input}
           type="text"
-          placeholder="Enter SlideShare URL to download slides"
+          placeholder="Enter SlideShare URL"
           autoFocus={true}
           onClick={(e) => e.target.select()}
           disabled={isLoading}

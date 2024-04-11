@@ -3,6 +3,7 @@ import cn from "classnames";
 import { AppActions, AppContext } from "@/store";
 import { Button } from "@/components/ui";
 import { DownloadPDF } from "@/components/common";
+import { DeselectIcon, SelectAllIcon } from "@/components/icons";
 import styles from "./ActionBar.module.css";
 
 const ActionBar = ({ className }) => {
@@ -29,6 +30,7 @@ const ActionBar = ({ className }) => {
         className={styles.button}
         onClick={handleSelectAll}
         disabled={state.selected_slides.length === state.slides.length}
+        icon={<SelectAllIcon />}
         kind="text"
       />
       |
@@ -37,6 +39,7 @@ const ActionBar = ({ className }) => {
         className={styles.button}
         onClick={handleDeselectAll}
         disabled={state.selected_slides.length === 0}
+        icon={<DeselectIcon />}
         kind="text"
       />
       |
@@ -44,7 +47,9 @@ const ActionBar = ({ className }) => {
         label={"Download Selected"}
         disabled={state.selected_slides.length === 0}
       />
-      {state.selected_slides.length}/{state.slides.length}
+      <div className={styles.pageCount}>
+        {state.selected_slides.length}/{state.slides.length}
+      </div>
     </div>
   );
 };

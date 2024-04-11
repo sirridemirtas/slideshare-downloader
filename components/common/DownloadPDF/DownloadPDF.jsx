@@ -39,16 +39,14 @@ const DownloadPDF = ({ label, disabled, full }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <Button
-        onClick={handleButtonClick}
-        disabled={isLoading || disabled}
-        isLoading={isLoading}
-        icon={<DownloadIcon />}
-        label={label || "Download as PDF"}
-        kind="text"
-      />
-    </div>
+    <Button
+      onClick={handleButtonClick}
+      disabled={isLoading || disabled}
+      isLoading={isLoading}
+      icon={<DownloadIcon />}
+      label={label || "Download as PDF"}
+      kind="text"
+    />
   );
 };
 

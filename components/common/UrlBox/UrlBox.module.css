@@ -4,8 +4,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 16px;
-  margin-top: 100px;
-  padding: 0 16px;
+  padding: 32px 16px;
 }
 
 .label {
@@ -35,7 +34,6 @@
 }
 
 .input {
-  _min-height: 56px;
   height: auto;
   margin-top: 16px;
   padding-bottom: 16px;
@@ -62,11 +60,6 @@
   color: var(--color-on-surface-variant);
   background: none;
 }
-
-/* .input:focus + .button {
-  background-color: var(--color-primary-container);
-  color: var(--color-on-primary);
-} */
 
 label.error {
   color: var(--color-error);

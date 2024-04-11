@@ -1,5 +1,6 @@
 import cn from "classnames";
 import useScrollPosition from "@/hooks/useScrollPosition";
+import { FileSaveIcon } from "@/components/icons";
 import styles from "./AppBar.module.css";
 
 const AppBar = () => {
@@ -8,7 +9,10 @@ const AppBar = () => {
   return (
     <nav className={cn(styles.nav_wrapper, y > 0 ? styles.scroll : "")}>
       <div className={styles.nav}>
-        <span className={styles.title}>SlideShare Downloader</span>
+        <span className={styles.logo}>
+          <FileSaveIcon />
+          SlideShare Downloader
+        </span>
         <span></span>
       </div>
     </nav>
