@@ -1,9 +1,8 @@
 import { useContext } from "react";
-import { AppActions, AppContext } from "@/store";
-import { Button } from "@/components/UI";
-import { DownloadPDF } from "@/components";
-
 import cn from "classnames";
+import { AppActions, AppContext } from "@/store";
+import { Button } from "@/components/ui";
+import { DownloadPDF } from "@/components/common";
 import styles from "./ActionBar.module.css";
 
 const ActionBar = ({ className }) => {

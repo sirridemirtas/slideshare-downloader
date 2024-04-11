@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { Spinner } from "../";
+import { Spinner } from "@/components/ui";
 import styles from "./Button.module.css";
 
 function Button({

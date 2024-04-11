@@ -1,8 +1,7 @@
-"use client";
 import { useContext } from "react";
 import cn from "classnames";
-import { AppActions, AppContext } from "../../store";
-import { ActionBar } from "../";
+import { AppActions, AppContext } from "@/store";
+import { ActionBar } from "@/components/common";
 import styles from "./Selection.module.css";
 
 const Selection = ({ props }) => {

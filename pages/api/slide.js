@@ -1,7 +1,7 @@
 import { parse } from "node-html-parser";
 
-import { isSlideShareUrl } from "../../utils/url";
-import { getThumbnailLinks, getSlideLinks } from "../../utils/slide-links";
+import { isSlideShareUrl } from "@/utils/url";
+import { getThumbnailLinks, getSlideLinks } from "@/utils/slide-links";
 
 export default function handler(req, res) {
   const sendError = (message) => {

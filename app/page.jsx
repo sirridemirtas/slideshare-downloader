@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
-import { AppContext } from "../store";
-import { AppBar, Preview, UrlBox, Selection } from "../components";
+import { AppContext } from "@/store";
+import { AppBar, Preview, UrlBox, Selection } from "@/components/common";
 
 export default function Home() {
   const { state } = useContext(AppContext);

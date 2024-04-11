@@ -1,8 +1,8 @@
 import { Analytics } from "@vercel/analytics/react";
-import { AppProvider } from "../store";
 import "normalize.css";
+import { AppProvider } from "@/store";
 import { Inter } from "next/font/google";
-import "./global.css";
+import "./css/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

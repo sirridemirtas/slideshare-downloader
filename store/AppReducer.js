@@ -1,6 +1,6 @@
 import { AppActions } from "./AppActions";
 import { initialState } from "./AppStore";
-import { reorderSecondArray } from "../utils/array";
+import { reorderSecondArray } from "@/utils/array";
 
 export const AppReducer = (state, action) => {
   switch (action.type) {

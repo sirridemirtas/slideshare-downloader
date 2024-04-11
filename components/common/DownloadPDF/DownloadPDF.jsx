@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import { AppContext } from "../../store";
-import { Button } from "../UI";
-import { DownloadIcon } from "../UI/Icons";
+import { AppContext } from "@/store";
+import { Button } from "@/components/ui";
+import { DownloadIcon } from "@/components/icons";
 import styles from "./DownloadPDF.module.css";
 
-const DownloadPDF = ({ label, disabled }) => {
+const DownloadPDF = ({ label, disabled, full }) => {
   const { state } = useContext(AppContext);
   const [pdfData, setPdfData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +17,7 @@ const DownloadPDF = ({ label, disabled }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(state.selected_slides),
+        body: JSON.stringify(full ? state.slides : state.selected_slides),
       });
 
       if (!response.ok) {

@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { AppContext } from "../../store";
-import { AppActions } from "../../store";
-import DownloadPDF from "../DownloadPDF/DownloadPDF";
+import { AppContext } from "@/store";
+import { AppActions } from "@/store";
+import { DownloadPDF } from "@/components/common";
+import { Button } from "@/components/ui";
 import styles from "./Preview.module.css";
-import { Button } from "../UI";
 
 const Preview = ({ props }) => {
   const { state, dispatch } = useContext(AppContext);
@@ -38,7 +38,7 @@ const Preview = ({ props }) => {
           <b>Page Count:</b> {state.slideSize}
         </span>
         <span>
-          <DownloadPDF label={"Download Full Slide"} />
+          <DownloadPDF label={"Download Full Slide"} full={true} />
         </span>
         <span>
           <Button

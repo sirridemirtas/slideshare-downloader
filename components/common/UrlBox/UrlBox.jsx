@@ -1,8 +1,8 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { AppContext, AppActions } from "../../store";
-import { isSlideShareUrl, upgradetoHTTPS } from "../../utils/url";
-import { Button } from "../UI";
-import { DownloadIcon } from "../UI/Icons";
+import { AppContext, AppActions } from "@/store";
+import { isSlideShareUrl, upgradetoHTTPS } from "@/utils/url";
+import { Button } from "@/components/ui";
+import { DownloadIcon } from "@/components/icons";
 import styles from "./UrlBox.module.css";
 
 const UrlBox = () => {
@@ -67,23 +67,25 @@ const UrlBox = () => {
 
   // Autosize textarea
   const textarea = useRef(null);
-  const resize = () => {
+  const resize = (event) => {
+    // trim leading and trailing spaces
+    event.target.value = event.target.value.trim();
+    //scroll to top
+    event.target.scrollTop = 0;
     textarea.current.style.height = "auto";
     textarea.current.style.height = textarea.current.scrollHeight + "px";
   };
 
   const handleInput = (event) => {
-    // trim leading and trailing spaces
-    event.target.value = event.target.value.trim();
-    resize(event);
     // press enter to submit
     if (event.keyCode === 13) {
       event.preventDefault();
       document.getElementById("button_submit_url").click();
       // blur to hide keyboard on mobile
-      event.target.blur();
+      if (!state.invalidUrl) event.target.blur();
       return false;
     }
+    resize(event);
   };
 
   useEffect(function onFirstMount() {
@@ -113,6 +115,7 @@ const UrlBox = () => {
           rows={1}
           required
           onKeyUp={handleInput}
+          onChange={resize}
           ref={textarea}
         ></textarea>
         <Button
