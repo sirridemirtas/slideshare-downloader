@@ -73,3 +73,16 @@ body {
   line-height: 1.4;
   color: var(--color-on-surface-variant);
 }
+
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  box-shadow: 0 0 0 3px var(--color-secondary-container);
+}

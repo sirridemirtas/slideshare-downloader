@@ -53,6 +53,19 @@ const Preview = ({ props }) => {
           icon={<SelectAllIcon />}
           kind="text"
         />
+
+        <span className={"disclaimer"}>
+          The download function may not always work due to server limitations.
+          You can install the application on your computer as described on&nbsp;
+          <a
+            href="https://github.com/sirridemirtas/slideshare-downloader"
+            target="_blank"
+            className="link"
+          >
+            GitHub <small>↗</small>
+          </a>{" "}
+          and use it without restrictions.
+        </span>
       </div>
     </div>
   );

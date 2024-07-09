@@ -19,11 +19,12 @@
   justify-content: space-between;
   align-items: center;
   gap: 24px;
+  padding-right: 16px;
 }
 
 @media screen and (max-width: 1200px) {
   .nav {
-    margin: 16px;
+    margin: 0 16px;
   }
 }
 
@@ -32,12 +33,11 @@
   align-items: center;
   gap: 8px;
   padding: 0 16px;
-
   font-size: 15px;
+  font-weight: 500;
   height: 48px;
-  border-radius: 24px;
-
-  background: var(--color-surface-container-highest);
+  border-radius: 8px;
+  _background: var(--color-surface-container-highest);
 }
 
 .logo svg {

@@ -2,12 +2,15 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext, AppActions } from "@/store";
 import { isSlideShareUrl, upgradetoHTTPS } from "@/utils/url";
 import { Button } from "@/components/ui";
-import { DownloadIcon } from "@/components/icons";
+import { DownloadIcon, LinkIcon } from "@/components/icons";
 import styles from "./UrlBox.module.css";
 
 const UrlBox = () => {
   const { state, dispatch } = useContext(AppContext);
   const [isLoading, setIsLoading] = useState(false);
+
+  const form = useRef(null);
+  const submitButton = useRef(null);
 
   const handleSetUrl = (event) => {
     event.preventDefault();
@@ -81,6 +84,7 @@ const UrlBox = () => {
     if (event.keyCode === 13) {
       event.preventDefault();
       document.getElementById("button_submit_url").click();
+
       // blur to hide keyboard on mobile
       if (!state.invalidUrl) event.target.blur();
       return false;
@@ -97,7 +101,11 @@ const UrlBox = () => {
       {/* <label htmlFor={styles.input} className={styles.label}>
         Enter the URL of the SlideShare presentation you want to download
       </label> */}
-      <form className={styles.form} onSubmit={handleSetUrl}>
+      <label className={styles.error}>
+        {state.invalidUrl && "Invalid SlideShare URL"}
+      </label>
+      <form className={styles.form} onSubmit={handleSetUrl} ref={form}>
+        <LinkIcon />
         <textarea
           id={styles.input}
           className={styles.input}
@@ -118,18 +126,18 @@ const UrlBox = () => {
           onChange={resize}
           ref={textarea}
         ></textarea>
-        <Button
-          type={"submit"}
-          className={styles.button}
-          disabled={isLoading}
-          isLoading={isLoading}
-          icon={<DownloadIcon />}
-          id={"button_submit_url"}
-        />
       </form>
-      <label className={styles.error}>
-        {state.invalidUrl && "Invalid SlideShare URL"}
-      </label>
+      <Button
+        type={"submit"}
+        onClick={handleSetUrl}
+        disabled={isLoading}
+        isLoading={isLoading}
+        icon={<DownloadIcon />}
+        id={"button_submit_url"}
+        label={"Get Slide"}
+        kind={"secondary"}
+        ref={submitButton}
+      />
     </div>
   );
 };

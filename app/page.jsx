@@ -20,7 +20,7 @@ export default function Home() {
       </main>
       <footer className="footer_wrapper">
         <div className="footer">
-          <span>&copy; 2024 &#183; SlideShare Downloader</span>
+          <span>&copy; 2024 &#183; Sirri Demirtas</span>
           <span className={"disclaimer"}>
             SlideShare Downloader operates under strict adherence to copyright
             laws. The platform functions as a conduit, retrieving content

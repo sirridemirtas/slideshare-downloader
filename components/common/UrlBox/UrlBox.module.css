@@ -31,6 +31,12 @@
   max-width: 600px;
   padding: 0 16px;
   padding-left: 22px;
+  margin-bottom: 16px;
+}
+
+.form:focus-within {
+  _border-color: var(--color-primary-container);
+  box-shadow: 0 0 0 3px var(--color-secondary-container);
 }
 
 .input {
@@ -52,13 +58,22 @@
   border-color: var(--color-primary-container);
 }
 
+.input::placeholder {
+  color: var(--color-on-surface-variant);
+}
+
 .button {
   border-radius: 20px;
-  width: 30px;
-  height: 30px;
-  padding: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
   color: var(--color-on-surface-variant);
   background: none;
+  border-radius: 40px;
+}
+
+.button:focus {
+  _box-shadow: 0 0 0 3px var(--color-secondary-container);
 }
 
 label.error {

@@ -9,11 +9,19 @@ const AppBar = () => {
   return (
     <nav className={cn(styles.nav_wrapper, y > 0 ? styles.scroll : "")}>
       <div className={styles.nav}>
-        <span className={styles.logo}>
+        <h1 className={styles.logo}>
           <FileSaveIcon />
           SlideShare Downloader
+        </h1>
+        <span>
+          <a
+            href="https://github.com/sirridemirtas/slideshare-downloader"
+            target="_blank"
+            className="link"
+          >
+            GitHub
+          </a>
         </span>
-        <span></span>
       </div>
     </nav>
   );

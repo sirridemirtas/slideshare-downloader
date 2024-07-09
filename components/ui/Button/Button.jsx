@@ -18,7 +18,8 @@ function Button({
         className,
         disabled && styles.disabled,
         isLoading && styles.isLoading,
-        kind === "text" && styles.text
+        kind === "text" && styles.text,
+        kind === "secondary" && styles.secondary
       )}
       disabled={disabled || isLoading}
       {...props}
