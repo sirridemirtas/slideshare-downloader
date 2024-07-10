@@ -12,6 +12,7 @@ export const initialState = {
   slides: [],
   selected_slides: [],
   selection_mode: false,
+  presentation_mode: false,
   invalidUrl: false,
 };
 

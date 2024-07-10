@@ -3,7 +3,7 @@ import { AppContext } from "@/store";
 import { AppActions } from "@/store";
 import { DownloadPDF } from "@/components/common";
 import { Button } from "@/components/ui";
-import { SelectAllIcon } from "@/components/icons";
+import { PresentToAllIcon, SelectAllIcon } from "@/components/icons";
 import styles from "./Preview.module.css";
 
 const Preview = ({ props }) => {
@@ -15,9 +15,32 @@ const Preview = ({ props }) => {
       payload: true,
     });
 
+    dispatch({
+      type: AppActions.SET_PRESENTATION_MODE,
+      payload: false,
+    });
+
     Promise.resolve().then(() => {
       document
         .getElementById("selection")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+
+  const openPresentationMode = () => {
+    dispatch({
+      type: AppActions.SET_PRESENTATION_MODE,
+      payload: true,
+    });
+
+    dispatch({
+      type: AppActions.SET_SELECTION_MODE,
+      payload: false,
+    });
+
+    Promise.resolve().then(() => {
+      document
+        .getElementById("presentation")
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   };
@@ -48,10 +71,21 @@ const Preview = ({ props }) => {
         <DownloadPDF label={"Download Full Slide"} full={true} />
 
         <Button
-          label={"Download Selected Pages"}
+          label={"Selection Mode"}
           onClick={openSelectionMode}
           icon={<SelectAllIcon />}
           kind="text"
+          disabled={state.slides.length === 0 || state.selection_mode === true}
+        />
+
+        <Button
+          label={"Open Presentation Mode"}
+          onClick={openPresentationMode}
+          icon={<PresentToAllIcon />}
+          kind="text"
+          disabled={
+            state.slides.length === 0 || state.presentation_mode === true
+          }
         />
 
         <span className={"disclaimer"}>

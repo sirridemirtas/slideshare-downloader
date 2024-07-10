@@ -32,6 +32,8 @@ export const AppReducer = (state, action) => {
       return { ...state, selection_mode: action.payload };
     case AppActions.RESET:
       return initialState;
+    case AppActions.SET_PRESENTATION_MODE:
+      return { ...state, presentation_mode: action.payload };
     default:
       return state;
   }

@@ -1,7 +1,13 @@
 "use client";
 import { useContext } from "react";
 import { AppContext } from "@/store";
-import { AppBar, Preview, UrlBox, Selection } from "@/components/common";
+import {
+  AppBar,
+  Preview,
+  Selection,
+  Slideshow,
+  UrlBox,
+} from "@/components/common";
 
 export default function Home() {
   const { state } = useContext(AppContext);
@@ -14,6 +20,12 @@ export default function Home() {
         {state.thumbs.length ? <Preview /> : ""}
         {state.selection_mode === true ? (
           <Selection images={state.thumbs} />
+        ) : (
+          ""
+        )}
+
+        {state.presentation_mode === true ? (
+          <Slideshow slides={state.slides} thumbs={state.thumbs} />
         ) : (
           ""
         )}

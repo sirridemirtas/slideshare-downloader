@@ -1,0 +1,117 @@
+.slideshowContainer {
+  position: relative;
+  outline: none; /* Remove default focus outline */
+
+  margin-top: 64px;
+  border-radius: 32px;
+  border: 1px solid var(--color-outline);
+  overflow: hidden;
+}
+
+.slideshow {
+  position: relative;
+  _width: 80%;
+  margin: 0 auto;
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(
+    --color-surface-container-highest
+  ); /* black; Ensure black background */
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure full image is visible */
+}
+
+.thumbnails {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: thin; /* For Firefox */
+  background-color: var(--color-surface-bright);
+  border-top: 1px solid var(--color-outline);
+  overflow: hidden;
+  padding: 0 32px;
+}
+
+.thumbnails img {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 6px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--color-outline);
+}
+
+.thumbnails img:last-child {
+  margin-right: 0;
+}
+
+.thumbnails img.active {
+  border: 1px solid var(--color-primary-container);
+  box-shadow: 0px 0px 0 1px var(--color-primary-container);
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 1000;
+}
+
+.fullscreen .slides {
+  height: 100%;
+  background: black;
+}
+
+.fullscreen .thumbnails {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px;
+  background: var(--color-surface-container-highest);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: thin; /* For Firefox */
+
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.fullscreen .thumbnails:hover {
+  opacity: 1;
+}
+
+.fullscreen .thumbnails img.active {
+  border: 1px solid var(--color-primary-container);
+  box-shadow: 0px 0px 0 1px var(--color-primary-container);
+}
+
+/* Hide mouse cursor when not moving */
+.fullscreen .slides {
+  cursor: none;
+}
+
+.fullscreen .slides:hover {
+  cursor: pointer;
+}
+
+/* Fullscreen toggle button */
+.fullscreenToggle {
+  margin: 0 auto;
+  margin-top: 8px;
+}
