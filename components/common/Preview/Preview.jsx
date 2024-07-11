@@ -9,6 +9,15 @@ import styles from "./Preview.module.css";
 const Preview = ({ props }) => {
   const { state, dispatch } = useContext(AppContext);
 
+  const isFullScreenAvailable = () => {
+    return (
+      document.fullscreenEnabled ||
+      document.webkitFullscreenEnabled ||
+      document.mozFullScreenEnabled ||
+      document.msFullscreenEnabled
+    );
+  };
+
   const openSelectionMode = () => {
     dispatch({
       type: AppActions.SET_SELECTION_MODE,
@@ -41,7 +50,7 @@ const Preview = ({ props }) => {
     Promise.resolve().then(() => {
       document
         .getElementById("presentation")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
     });
   };
 
@@ -78,15 +87,17 @@ const Preview = ({ props }) => {
           disabled={state.slides.length === 0 || state.selection_mode === true}
         />
 
-        <Button
-          label={"Open Presentation Mode"}
-          onClick={openPresentationMode}
-          icon={<PresentToAllIcon />}
-          kind="text"
-          disabled={
-            state.slides.length === 0 || state.presentation_mode === true
-          }
-        />
+        {isFullScreenAvailable && (
+          <Button
+            label={"Open Presentation Mode"}
+            onClick={openPresentationMode}
+            icon={<PresentToAllIcon />}
+            kind="text"
+            disabled={
+              state.slides.length === 0 || state.presentation_mode === true
+            }
+          />
+        )}
 
         <span className={"disclaimer"}>
           The download function may not always work due to server limitations.

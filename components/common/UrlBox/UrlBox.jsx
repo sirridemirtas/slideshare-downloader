@@ -23,6 +23,7 @@ const UrlBox = () => {
     let url = document.getElementById(styles.input).value.trim();
     if (isSlideShareUrl(url) === false) {
       dispatch({ type: AppActions.SET_INVALID_URL, payload: true });
+      document.getElementById(styles.input).select();
       setIsLoading(false);
       return;
     }
@@ -96,6 +97,13 @@ const UrlBox = () => {
     window.addEventListener("resize", resize);
   }, []);
 
+  const getExample = () => {
+    document.getElementById(styles.input).value =
+      "https://www.slideshare.net/TrevayneVanNiekerk/good-design-in-ux-and-ui-trevayne-van-niekerk";
+    handleSetUrl({ preventDefault: () => {} });
+    resize({ target: document.getElementById(styles.input) });
+  };
+
   return (
     <div className={styles.wrapper}>
       {/* <label htmlFor={styles.input} className={styles.label}>
@@ -127,17 +135,36 @@ const UrlBox = () => {
           ref={textarea}
         ></textarea>
       </form>
-      <Button
-        type={"submit"}
-        onClick={handleSetUrl}
-        disabled={isLoading}
-        isLoading={isLoading}
-        icon={<DownloadIcon />}
-        id={"button_submit_url"}
-        label={"Get Slide"}
-        kind={"secondary"}
-        ref={submitButton}
-      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          gap: "8px",
+        }}
+      >
+        <Button
+          type={"submit"}
+          onClick={handleSetUrl}
+          disabled={isLoading}
+          isLoading={isLoading}
+          icon={<DownloadIcon />}
+          id={"button_submit_url"}
+          label={"Get Slide"}
+          kind={"secondary"}
+          ref={submitButton}
+        />
+
+        <Button
+          type={"button"}
+          onClick={getExample}
+          label={"Example"}
+          kind={"text"}
+          style={{ fontWeight: "400" }}
+        />
+      </div>
     </div>
   );
 };

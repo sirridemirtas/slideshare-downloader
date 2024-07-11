@@ -1,6 +1,5 @@
 .slideshowContainer {
   position: relative;
-  outline: none; /* Remove default focus outline */
 
   margin-top: 64px;
   border-radius: 32px;
@@ -10,19 +9,15 @@
 
 .slideshow {
   position: relative;
-  _width: 80%;
-  margin: 0 auto;
 }
 
 .slides {
   position: relative;
   width: 100%;
-  height: auto;
-  overflow: hidden;
+  _height: 400px;
+
   cursor: pointer;
-  background-color: var(
-    --color-surface-container-highest
-  ); /* black; Ensure black background */
+  background-color: var(--color-surface-container-highest);
 }
 
 .slides img {
@@ -33,8 +28,8 @@
 
 .thumbnails {
   display: flex;
-  overflow-x: auto;
-  scrollbar-width: thin; /* For Firefox */
+  flex-wrap: nowrap;
+  flex-direction: row;
   background-color: var(--color-surface-bright);
   border-top: 1px solid var(--color-outline);
   overflow: hidden;
@@ -101,16 +96,6 @@
   box-shadow: 0px 0px 0 1px var(--color-primary-container);
 }
 
-/* Hide mouse cursor when not moving */
-.fullscreen .slides {
-  cursor: none;
-}
-
-.fullscreen .slides:hover {
-  cursor: pointer;
-}
-
-/* Fullscreen toggle button */
 .fullscreenToggle {
   margin: 0 auto;
   margin-top: 8px;

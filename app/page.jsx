@@ -16,7 +16,18 @@ export default function Home() {
     <div className="container">
       <AppBar />
       <main className="main">
+        {/* <h2 className="hero">
+          Download as PDF or present fullscreen.
+          <br />
+          <p className="subtext">
+            Effortlessly convert presentations to PDF. Select specific pages for
+            customized downloads. Enjoy fullscreen presentations directly in
+            your browser, no signup needed.
+          </p>
+        </h2> */}
+
         <UrlBox />
+
         {state.thumbs.length ? <Preview /> : ""}
         {state.selection_mode === true ? (
           <Selection images={state.thumbs} />

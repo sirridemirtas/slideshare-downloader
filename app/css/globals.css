@@ -85,4 +85,31 @@ body {
 
 .link:focus-visible {
   box-shadow: 0 0 0 3px var(--color-secondary-container);
+  background: var(--color-surface-container-high);
+  border-radius: 4px;
+}
+
+.hero {
+  /* background: -webkit-linear-gradient(
+    270deg,
+    var(--color-secondary),
+    var(--color-primary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+  color: var(--color-primary);
+  font-size: 36px;
+  text-align: center;
+  font-weight: 500;
+  _border: 1px solid var(--color-outline);
+  max-width: 800px;
+  margin: 0 auto;
+  hyphens: auto;
+}
+
+.hero p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-top: 16px;
 }

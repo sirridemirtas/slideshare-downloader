@@ -100,13 +100,21 @@ const Slideshow = ({ slides, thumbs }) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         id="presentation"
+        style={{ cursor: isMouseMoving ? "pointe" : "none" }}
       >
         <FullScreen handle={handle}>
           <div
             className={cn(styles.slideshow, handle.active && styles.fullscreen)}
             onMouseMove={handleMouseMove}
           >
-            <div className={styles.slides} onClick={handleSlideClick}>
+            <div
+              className={styles.slides}
+              onClick={handleSlideClick}
+              style={{
+                height: !handle.active ? "calc(100vh - 230px)" : "100%",
+                maxHeight: "1000px",
+              }}
+            >
               {slides.length > 0 ? (
                 <img
                   src={slides[currentSlide]}
@@ -149,6 +157,7 @@ const Slideshow = ({ slides, thumbs }) => {
         onClick={toggleFullscreen}
         className={styles.fullscreenToggle}
         label={handle.active ? "Exit Fullscreen" : "Enter Fullscreen"}
+        kind="text"
       />
     </>
   );
