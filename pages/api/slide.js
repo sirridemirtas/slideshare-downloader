@@ -25,8 +25,9 @@ export default function handler(req, res) {
     .then((data) => {
       const root = parse(data);
       const slideSize = root
-        .querySelector('[data-cy="page-number"]')
-        .childNodes.pop().rawText;
+        .querySelector('[id="slide-preview-0"] span span')
+        .rawText.replace(/\s*\/\s*/g, "")
+        .trim();
       const firstSlide = root
         .querySelector("#slide-image-0")
         .getAttribute("src");
@@ -34,6 +35,11 @@ export default function handler(req, res) {
       const originalUrl = root
         .querySelector('link[rel="canonical"]')
         .getAttribute("href");
+
+      /* console.log("SlideShare presentation fetched:", slideTitle);
+      console.log("Original URL:", originalUrl);
+      console.log("Slide size:", slideSize);
+      console.log("First slide image:", firstSlide); */
 
       res.status(200).json({
         status: "ok",
