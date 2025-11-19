@@ -100,7 +100,7 @@ const Slideshow = ({ slides, thumbs }) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         id="presentation"
-        style={{ cursor: isMouseMoving ? "pointer" : "default" }}
+        style={{ cursor: isMouseMoving ? "pointer" : "none" }}
       >
         <FullScreen handle={handle}>
           <div
