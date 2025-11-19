@@ -1,5 +1,4 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { AppContext, AppActions } from "@/store";
 import { isSlideShareUrl, upgradetoHTTPS } from "@/utils/url";
 import { Button } from "@/components/ui";
@@ -9,7 +8,6 @@ import styles from "./UrlBox.module.css";
 const UrlBox = () => {
   const { state, dispatch } = useContext(AppContext);
   const [isLoading, setIsLoading] = useState(false);
-  const searchParams = useSearchParams();
 
   const form = useRef(null);
   const submitButton = useRef(null);
@@ -105,53 +103,6 @@ const UrlBox = () => {
     handleSetUrl({ preventDefault: () => {} });
     resize({ target: document.getElementById(styles.input) });
   };
-
-  // Auto-load when there is a valid SlideShare URL in the query string
-  useEffect(() => {
-    const urlFromQuery = searchParams.get("url");
-    const modeFromQuery = searchParams.get("mode");
-    if (!urlFromQuery) return;
-
-    if (isSlideShareUrl(urlFromQuery) === false) {
-      return;
-    }
-
-    const upgradedUrl = upgradetoHTTPS(urlFromQuery.trim());
-    const inputEl = document.getElementById(styles.input);
-    if (inputEl) {
-      inputEl.value = upgradedUrl;
-      resize({ target: inputEl });
-    }
-
-    handleSetUrl({ preventDefault: () => {} });
-  }, [searchParams]);
-
-  // When slides are loaded and a mode is specified, switch to that mode
-  useEffect(() => {
-    const modeFromQuery = searchParams.get("mode");
-    if (!modeFromQuery) return;
-    if (!state.slides || state.slides.length === 0) return;
-
-    if (modeFromQuery === "presentation") {
-      dispatch({
-        type: AppActions.SET_PRESENTATION_MODE,
-        payload: true,
-      });
-      dispatch({
-        type: AppActions.SET_SELECTION_MODE,
-        payload: false,
-      });
-    } else if (modeFromQuery === "selection") {
-      dispatch({
-        type: AppActions.SET_SELECTION_MODE,
-        payload: true,
-      });
-      dispatch({
-        type: AppActions.SET_PRESENTATION_MODE,
-        payload: false,
-      });
-    }
-  }, [searchParams, state.slides, dispatch]);
 
   return (
     <div className={styles.wrapper}>
