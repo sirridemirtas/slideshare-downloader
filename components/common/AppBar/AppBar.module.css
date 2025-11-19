@@ -43,3 +43,9 @@
 .logo svg {
   color: var(--color-primary);
 }
+
+.logo_text {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

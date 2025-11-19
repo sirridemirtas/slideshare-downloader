@@ -7,20 +7,22 @@ import "./css/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "SlideShare Downloader",
+  title: "SlideShare Viewer & Downloader",
   description:
-    "Effortlessly convert SlideShare presentations to PDF. Customize downloads by selecting specific pages. Convenient access to valuable content.",
+    "View SlideShare presentations online in your browser, present them fullscreen, and download selected slides as high-quality PDFs.",
   keywords: [
     "SlideShare",
+    "SlideShare viewer",
+    "SlideShare downloader",
+    "online presentation viewer",
+    "presentation",
     "PDF converter",
     "download",
-    "downloader",
-    "presentation",
-    "document",
+    "fullscreen",
+    "slideshow",
     "online",
     "user-friendly",
     "customization",
-    "ease of use",
   ],
   meta: {
     charset: "utf-8",

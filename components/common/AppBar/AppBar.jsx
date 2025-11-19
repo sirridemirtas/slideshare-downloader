@@ -11,7 +11,10 @@ const AppBar = () => {
       <div className={styles.nav}>
         <h1 className={styles.logo}>
           <FileSaveIcon />
-          SlideShare Downloader
+          <div className={styles.logo_text}>
+            <div>SlideShare Viewer&nbsp;</div>
+            <div>& Downloader</div>
+          </div>
         </h1>
         <span>
           <a

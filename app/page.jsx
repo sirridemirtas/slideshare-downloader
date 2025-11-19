@@ -45,13 +45,13 @@ export default function Home() {
         <div className="footer">
           <span>&copy; 2024 &#183; Sirri Demirtas</span>
           <span className={"disclaimer"}>
-            SlideShare Downloader operates under strict adherence to copyright
-            laws. The platform functions as a conduit, retrieving content
-            directly from the Content Delivery Networks (CDNs) of the original
-            sources. It is important to note that SlideShare Downloader does not
-            host or store any copyrighted material on its servers. Furthermore,
-            the platform maintains no affiliation with SlideShare or any other
-            content-sharing platforms.
+            SlideShare Viewer & Downloader operates in strict adherence to
+            copyright laws. The platform acts solely as a technical conduit,
+            retrieving and displaying content directly from the Content Delivery
+            Networks (CDNs) of the original sources. SlideShare Viewer &
+            Downloader does not host or store any copyrighted material on its
+            servers and is not affiliated with SlideShare or any other
+            content-sharing platform.
           </span>
         </div>
       </footer>
